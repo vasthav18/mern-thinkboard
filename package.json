@@ -1,12 +1,7 @@
 {
   "name": "thinkboard",
   "version": "1.0.0",
-  "private": true,
-  "workspaces": [
-    "frontend",
-    "backend",
-    "."
-  ],
+  
   "engines": {
     "node": "22.x"
   },
