@@ -34,6 +34,11 @@ app.use(rateLimiter);
 //     next(); 
 // });
 
+// health endpoint for readiness checks
+app.get('/health', (req, res) => {
+    return res.json({ status: 'ok', uptime: process.uptime() });
+});
+
 app.use("/api/notes",notesRoutes); 
 
 if(process.env.NODE_ENV === "production") {
