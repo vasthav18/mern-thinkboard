@@ -15,12 +15,17 @@ const __dirname = path.resolve()
 
 // connectDB();
 
-//middleware
-if (process.env.NODE_ENV != "production") {
-app.use(cors({
-    origin:"http://localhost:5173",
-})
- );
+// middleware
+// Configure CORS to accept calls from the frontend. In production set
+// CORS_ALLOWED_ORIGIN to the frontend origin (for example: https://mern-thinkboard-yb37.vercel.app)
+const corsOrigin = process.env.CORS_ALLOWED_ORIGIN || (process.env.NODE_ENV !== 'production' ? 'http://localhost:5173' : undefined);
+if (corsOrigin) {
+    app.use(cors({ origin: corsOrigin, credentials: true }));
+} else {
+    // if no CORS origin is configured in production, do not enable CORS (keeps current behavior)
+    if (process.env.NODE_ENV !== 'production') {
+        app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+    }
 }
 app.use(express.json()); //this middleware will parse JSON bodies:req.body
 app.use(rateLimiter);
