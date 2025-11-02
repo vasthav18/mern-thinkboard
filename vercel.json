@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "build": {
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build"
+  },
+  "functions": {
+    "nodeVersion": "22.x"
+  }
+}
