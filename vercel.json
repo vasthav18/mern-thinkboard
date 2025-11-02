@@ -2,8 +2,5 @@
   "version": 2,
   "installCommand": "npm install --prefix backend && npm install --prefix frontend",
   "buildCommand": "npm run build --prefix frontend",
-  "outputDirectory": "frontend/dist",
-  "functions": {
-    "nodeVersion": "22.x"
-  }
+  "outputDirectory": "frontend/dist"
 }
